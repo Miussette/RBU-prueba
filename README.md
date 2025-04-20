@@ -1,55 +1,62 @@
-# React + TypeScript + Vite
+# Prueba Técnica - RBU
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web construida con React + TypeScript + TailwindCSS que permite gestionar proyectos y desarrolladores, incluyendo asignaciones, filtros avanzados, paginación, edición, y más.
 
-Currently, two official plugins are available:
+## Demo (opcional)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Puedes probar la aplicación en local siguiendo las instrucciones de abajo. Si tienes un enlace de despliegue (como en Vercel o Netlify), agrégalo aquí:
 
-## Expanding the ESLint configuration
+[Enlace a la demo (si aplica)]()
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Instalación
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+git clone https://github.com/Miussette/RBU-prueba.git
+cd dev-manager
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Luego abre [http://localhost:5173](http://localhost:5173) en tu navegador.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Asegúrate de tener Node.js y npm instalados.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+## Arquitectura
+
+- React + TypeScript: estructura modular basada en componentes.
+- TailwindCSS: para estilos rápidos, modernos y responsivos.
+- React Query: manejo de caché y fetching de datos de forma eficiente.
+- Axios: para consumir la API REST.
+- API Externa: conexión con API alojada en https://apipruebas.rbu.cl/api.
+
+### Carpetas principales:
+
 ```
+src/
+├── api/                 # Módulos para llamadas HTTP (axios)
+├── components/          # Componentes reutilizables (modales, formularios, tablas)
+├── hooks/               # Custom hooks para lógica compartida
+├── pages/               # Vistas principales (Proyectos, Desarrolladores)
+├── types/               # Tipado global TypeScript
+```
+
+## Decisiones Técnicas
+
+- Se optó por mantener la lógica en el frontend (sin backend propio) utilizando una API pública.
+- La interfaz está dividida por roles (proyectos/desarrolladores) con vistas y filtros adaptados a cada uno.
+- Se incluyó paginación, filtros combinables, validaciones y feedback visual para acciones del usuario.
+
+## Funcionalidades principales
+
+- Crear, editar, eliminar y reactivar desarrolladores y proyectos.
+- Asignar desarrolladores a proyectos y ver relaciones cruzadas.
+- Filtros por nombre, estado, experiencia y fechas.
+- Ver detalle de cada desarrollador (proyectos asignados).
+- Paginación dinámica y tabla responsive.
+- Modo oscuro y estilos adaptativos (Tailwind).
+
+## Consideraciones adicionales
+
+- El formulario valida formatos de RUT (sin puntos) y fechas válidas.
+- El sistema de filtros funciona de forma combinada y sin recargar la página.
 # RBU-prueba
