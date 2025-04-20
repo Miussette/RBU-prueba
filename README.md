@@ -2,9 +2,13 @@
 
 Aplicación web construida con React + TypeScript + TailwindCSS que permite gestionar proyectos y desarrolladores, incluyendo asignaciones, filtros avanzados, paginación, edición, y más.
 
-## Demo (opcional)
+## Aplicación desplegada
 
-[https://rbu-prueba-1.vercel.app/](https://rbu-prueba-1.vercel.app/)
+La aplicación está desplegada en Vercel y puede ser accedida desde el siguiente enlace:
+
+[https://rbu-prueba-1.vercel.app](https://rbu-prueba-1.vercel.app)
+
+Esto permite visualizar y probar todas las funcionalidades directamente desde el navegador, sin necesidad de instalar nada localmente.
 
 ## Instalación
 
